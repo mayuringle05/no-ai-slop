@@ -75,6 +75,7 @@ It also checks the fundamentals: Lead with the point when that helps, use active
 
 - [`SKILL.md`](skills/no-ai-slop/SKILL.md) contains the editing rules and workflow.
 - [`eval.md`](skills/no-ai-slop/eval.md) contains the checks the skill runs on its work.
+- [`references/spanish.md`](skills/no-ai-slop/references/spanish.md) and [`references/catalan.md`](skills/no-ai-slop/references/catalan.md) contain the Spanish and Catalan patterns and checks.
 - [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) contains the ChatGPT and Codex plugin metadata.
 - [`build_plugin.py`](scripts/build_plugin.py) builds and validates the plugin package.
 
