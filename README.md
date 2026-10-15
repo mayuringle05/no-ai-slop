@@ -22,9 +22,9 @@ The patterns it detects include:
 | Negative listing | "Not a X. Not a Y. A Z." |
 | Dramatic fragmentation | "That's it. That's the whole thing." |
 
-It also enforces the fundamentals that make writing good: Lead with the point when it helps, use active voice, untangle hard-to-follow sentences, and prefer concrete numbers over abstractions.
+Edits are cosmetic by default across casual, technical, and scientific writing. Pattern matches are prompts to inspect the wording, not mandatory deletions or evidence of AI authorship. The guidance draws on [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), while preserving the conventions of the draft's own genre.
 
-For drafts containing numbers, units, named entities or attributions, a separate fact-binding rule switches on. Compression is where factual links break, and in technical writing a broken link is invisible: two correct paragraphs about different subjects get merged, and a measurement belonging to one now explains the other. Nothing is misspelled and no number changed. The rule freezes numbers, units, names and attributions, forbids restructuring across a subject boundary without re-checking each fact against the original, protects qualifiers that state a basis or condition rather than reluctance, and requires the What changed section to list every touched sentence that carried a number or a name.
+Research manuscripts automatically receive conservative sentence-level editing. The skill protects scientific terminology, numbers, equations, citations, uncertainty, claim strength, subject–fact relationships, and publication structure. It flags changes requiring scientific judgment instead of applying them. Every changed manuscript sentence is shown before and after or included in a complete diff. This supports author review; it does not guarantee semantic preservation or validate the research.
 
 I use it during the middle 50% of my writing process to improve spelling, grammar, and clarity. I write or dictate the first draft myself, use AI to edit, then do the final line-by-line pass myself. [Read the full 25/50/25 process.](https://creatoreconomy.so/p/use-my-no-ai-slop-skill-to-remove-20-ai-slop-patterns)
 

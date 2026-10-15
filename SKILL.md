@@ -1,132 +1,79 @@
 ---
 name: no-ai-slop
-description: Edit drafts into sharper, more human writing while preserving the writer's personal voice, or detect AI-slop patterns without rewriting. Use when the user wants a draft clearer, more direct, more opinionated, or less AI-sounding, or asks whether writing reads as AI.
+description: Cosmetically edit casual, technical, and scientific drafts to remove formulaic AI wording while preserving voice, facts, and claim strength. Use for less AI-sounding writing, light copyediting, or a style audit without rewriting. Research manuscripts receive conservative sentence-level edits, not substantive revision.
 ---
 
 # No AI slop
 
-You are a sharp human editor. Preserve the user's point and personal voice while making the writing clearer and more alive. Remove AI patterns without turning distinctive writing into generic polished prose.
+Remove formulaic wording with the smallest useful edit. Preserve the author's meaning, personal voice, and genre. A clean draft may need no changes. Cosmetic editing is the default; becoming more persuasive, opinionated, concise, or accessible is not permission to change substance.
 
-## Two jobs
+## Modes and scope
 
-**Edit (default).** The user shares a draft to fix. Make the minimum effective edit with the rules below and return the edited draft plus a What changed section.
+**Edit (default):** Return the edited draft and a brief **What changed** note. Apply the preservation rules before any stylistic preference.
 
-**Detect.** The user asks whether a piece is AI slop, or asks to audit, scan, or flag a draft without rewriting. Name each pattern from this skill that appears, quote the line, and give the fix in a few words. Do not rewrite, score the draft, or guess whether AI wrote it. AI detectors guess. Named patterns are evidence the user can check. Offer to edit the draft after.
+**Detect:** When asked to audit or flag writing without rewriting, quote the relevant passage, name the pattern, and briefly explain a possible cosmetic fix. Do not rewrite the draft, assign an AI probability, or infer authorship. Familiar phrases alone are not evidence that AI wrote a text.
 
-## What to ask for
+Use the draft and request to infer audience, language, and register. Ask for text if none is available. Ask about audience only when the answer is needed to avoid a consequential change. If a passage is ambiguous, leave it unchanged, flag the specific ambiguity, and continue safe edits elsewhere.
 
-If the user has not provided a draft, ask them to paste it.
+## Meaning comes first
 
-If the audience or format is unclear, ask one question: Who is this for and where will it be published?
+These rules override every pattern and word preference below, in every genre:
 
-If the goal is unclear, ask what the reader should think, feel, or do after reading it.
+- Do not invent facts, examples, measurements, mechanisms, opinions, sources, or takeaways to make prose more concrete. Use only what the supplied text already establishes.
+- Preserve who did what, to whom, when, why, and under which conditions. Keep negation, comparison, chronology, exceptions, and the distinction between possibility, observation, interpretation, and established fact.
+- Preserve claims even when they sound inflated or unsupported. Remove only empty framing around them. Flag a questionable assertion separately; deleting, weakening, strengthening, or correcting it requires a substantive editing request.
+- Keep the writer's language, dialect, spelling convention, formality, humor, bluntness, uncertainty, and intentional fragments. Do not add slang, errors, anecdotes, contrived variation, or opinions to simulate a human voice.
+- No word, punctuation mark, or sentence shape is banned outright. Keep technical terms, purposeful repetition, real contrasts, and distinctive phrasing. Replace a word only when the alternative means the same thing in context.
+- Prefer direct verbs when they help. Keep passive voice when the actor is unknown, immaterial, or conventionally omitted. Subjects such as algorithms and instruments can legitimately perform actions.
 
-## Editing principles
+## Research and technical protection
 
-- **Preserve the writer's real voice.** First notice the draft's vocabulary, cadence, bluntness, humor, uncertainty, digressions, and level of polish. Keep the traits that feel personal to the writer. Do not make every paragraph equally tidy or rewrite distinctive lines merely for consistency.
-- **Make the minimum effective edit.** Fix AI patterns, errors, repetition, and unclear passages. Leave strong human sentences alone. A rough draft with a real voice should still sound like the same person after editing.
-- **Lead with the point when the setup adds nothing.** Cut generic throat-clearing. Keep a personal aside, story, or admission when it creates context, tension, or character.
-- **Front-load only when it improves clarity.** Put conclusions early when that helps the reader. Do not force every section and paragraph into the same point-detail-background shape.
-- **Keep the user's meaning.** Don't invent claims, examples, stats, or opinions. If something is unclear, ask.
-- **Open it up, don't dumb it down.** Keep the substance, nuance, and precision. Strip out only what makes it hard to read: jargon, long sentences, abstract nouns, and tangled structure.
-- **Use active voice.** "The team shipped it Tuesday" beats "the decision emerged." Never let inanimate things do human verbs.
-- **Make every sentence earn its place.** Cut empty qualifiers and throat-clearing. Keep phrases such as "I think," "maybe," or "to be honest" when they express real uncertainty, self-awareness, or the writer's spoken rhythm.
-- **Untangle sentences without flattening the cadence.** Split sentences and paragraphs when they are genuinely hard to follow. Keep longer spoken sentences, fragments, and changes in pace when they are clear and characteristic of the writer.
-- **Be concrete and specific.** Abstraction is where writing goes to die. "The integration improved efficiency" becomes "The integration cut deploy time from 40 minutes to 4." Names, numbers, dates, mechanisms, and examples beat abstractions.
-- **Protect the specific fact.** Don't smooth a useful detail into generic importance. "The tool significantly improves engineering productivity" becomes "The tool cut review time from 30 minutes to 8."
-- **Make verbs do the work.** Replace weak verb phrases with direct verbs. "Made a decision" becomes "decided." "Has the ability to" becomes "can."
-- **Know the job.** Before structure or word choice, know what the piece is trying to do and who it is for.
-- **Preserve useful edge and character.** Keep strong opinions, blunt language, humor, profanity, self-interruptions, and honest admissions when they belong to the writer. Don't replace them with safer or more professional wording.
-- **Keep structure unless it's hurting the piece.** Preserve the writer's progression and detours when they carry personality. If you reorganize, say why in the What changed section.
+Automatically use **cosmetic-only manuscript editing** for research papers, abstracts, theses, scientific passages, and publication submissions, even if the user simply says “remove slop.” Apply the same protections to technical claims inside other genres.
 
-## Technical content: the fact-binding rule
+1. **Freeze protected content.** Keep numbers, precision, signs, units, ranges, uncertainty intervals, statistical notation, variable names, equations, chemical expressions, code, identifiers, entity names, versions, quotations, and citation markers byte-identical unless explicitly asked to edit them. Preserve reference entries, URLs, DOIs, labels, cross-references, and their ordering. A suspected typo inside protected content is a flag, not a silent fix.
+2. **Preserve fact binding.** Every measurement, attribution, comparison, and conclusion must remain attached to its original subject, population, material, dataset, run, method, and conditions. Matching the numbers alone is insufficient. Do not merge or reorder across subject boundaries. Check sentence splits against the original, including pronoun antecedents and citation scope.
+3. **Freeze scientific force.** Preserve causality versus association, observed versus simulated results, relative versus absolute change, statistical versus practical significance, and absence of evidence versus evidence of absence. Retain scope, assumptions, limitations, exceptions, quantifiers, and uncertainty. Do not change “may” to “does,” “suggests” to “demonstrates,” or “not statistically significant” to “no effect.”
+4. **Respect terminology.** Keep established and author-defined terms, acronym definitions, and distinctions between quantities. “Robust,” “significant,” “novel,” “leverage,” and “noise” can carry precise meanings. Do not substitute synonyms merely to reduce repetition, or unify terms unless their identity is explicit in the source.
+5. **Keep publication structure.** Preserve sections, paragraph order, headings, tables, figure contents, captions' factual content, and required abstract/discussion/conclusion structure. Edit prose within that structure. Keep LaTeX commands, environments, math, citation keys, and document markup intact; edit only clearly identified prose spans. Do not reflow the entire source file.
+6. **Stay local.** Prefer a word or clause change. Do not compress a paragraph into a summary, remove a limitation, or add interpretation. Preserve meaningful repeated information across an abstract, results section, and conclusion. If equivalence requires scientific judgment, keep the original and flag it.
 
-Switch this on whenever the draft contains numbers, units, named entities (products,
-systems, materials, versions, people), attributions, or causal claims. Most of the rules
-above optimise for compression. **Compression is where factual links break.** In technical
-writing a broken link is invisible, because the prose reads better while saying something
-false.
+For a file edit, retain a recoverable original or a reviewable diff before writing. Do not accept or erase existing tracked changes or comments. Use native tracked changes when available and appropriate to the requested format; otherwise provide a separate comparison. Never describe a wording check as scientific validation.
 
-The failure looks like this. Two adjacent paragraphs each describe a different subject and
-each is correct. Tightening merges them. The result is one fluent paragraph in which a
-measurement belonging to subject A now explains subject B. Nothing is misspelled, no number
-changed, and the claim is fabricated. This has actually happened and it survived several
-re-readings by the person who wrote it.
+## Style patterns to inspect
 
-**Rules, in force whenever the switch is on:**
+These are candidates, not automatic deletion rules. Edit only when they add no meaning or replaceable wording has the same meaning.
 
-- **Never merge, split or reorder across a subject boundary without re-checking each fact
-  against the original.** A subject boundary is any point where the thing being described
-  changes, such as a different material, dataset, tool, version, run, or person.
-- **Numbers, units, entity names and attributions are frozen.** They survive byte-identical
-  unless the writer asked for a change. Rounding a figure, dropping a unit, or replacing a
-  specific name with a general one is a content change, not a style change.
-- **After editing, verify subject-fact binding.** For every claim carrying a number or a
-  name, ask: is it still attached to the same subject as in the original? Do this as a
-  separate pass, reading the edited draft against the original, not from memory of it.
-- **Do not remove a hedge that carries technical meaning.** "Within this model", "on the
-  solid basis", "computed rather than measured", "at one bar" look like throat-clearing and
-  are load-bearing. If a qualifier states a basis, a condition, or the limits of a method,
-  it stays. Cut hedges that express only reluctance, never hedges that state scope.
-- **Do not let the ban on synonym cycling flatten two different things into one word.** If
-  the draft uses two terms because they denote two quantities, keep both.
-- **If tightening would require you to know whether something is true, stop and ask.** The
-  editor's job is prose. Deciding that two facts can be joined is a technical judgement.
+- **Throat-clearing and inflated diction:** Trim empty introductory phrases and replace unnecessarily elaborate words with ordinary equivalents. Preserve genuine emphasis and the author's spoken rhythm.
+- **Importance puffery and superficial analysis:** Inspect grand significance claims and trailing clauses that announce impact without explaining it. Cut empty emphasis; retain or flag any actual assertion rather than quietly removing it. Never replace puffery with a newly invented benefit.
+- **Vague attribution:** Flag unnamed authorities or unsupported consensus. Do not invent a source, strip the attribution to turn an opinion into fact, or remove an attached citation. Name a source only when already unambiguously supplied.
+- **Dramatic contrast:** Simplify empty “not X, but Y” framing only if both the excluded X and asserted Y retain their meaning. Keep scientific exclusions and corrections of actual misconceptions.
+- **Faux insight and rhetorical reveals:** Trim generic expertise claims, self-answered questions, and theatrical colon setups when they contribute nothing. Preserve genuine questions, purposeful labels, and the author's humor.
+- **Padded rhythm:** Reduce redundant adjective clusters, forced triplets, repeated sentence templates, and choppy fragments. Keep real three-item lists and intentional cadence; do not randomize sentence lengths.
+- **Synonym cycling and elaborate verbs:** Use stable terminology and plain verbs where equivalent. “Serves as” can describe a function rather than an identity, so “is” is not always interchangeable.
+- **Stock endings:** Remove empty recaps or decorative closing lines only if they carry no claim and the format does not need them. Preserve real limitations, future work, conclusions, and next steps. Do not write a new moral or takeaway.
+- **Decorative formatting:** Reduce distracting bold, emoji, tiny sections, unnecessary lists, and dash clusters when appropriate to the genre. Keep useful lists, casual emoji, typographic conventions, and required formatting. No dash quota.
+- **Chat residue:** Remove an unmistakable assistant preamble or offer accidentally pasted into the draft. Preserve quotations of such text. Flag placeholders, broken citations, and uncertain artifacts; do not guess missing content or delete evidence of a citation problem.
 
-**In the What changed section, list separately every sentence you touched that contained a
-number, a unit, a named entity or an attribution.** The writer can then re-verify exactly
-those and nothing else. Without that list they have to re-verify the whole draft, which
-means they will not.
+Watch words include delve, foster, leverage, utilize, facilitate, empower, streamline, robust, tapestry, realm, pivotal, transformative, intricate, and ever-evolving. Watch phrases include “it's worth noting,” “at its core,” “in today's world,” and “going forward.” Inspect their function rather than applying search-and-replace.
 
-## Words to cut
+## Safe examples
 
-Banned outright: delve, foster, leverage, utilize, facilitate, empower, streamline, robust, cutting-edge, paradigm shift, game changer, this is huge, this changes everything, tapestry, realm, beacon, multifaceted, meticulous, intricate, paramount, transformative, elevate, embark, supercharge, harness, ever-evolving.
+- Cosmetic: “It is worth noting that the assay may detect X at 5 mg/L.” → “The assay may detect X at 5 mg/L.” Keep both the uncertainty and the value.
+- Leave alone: “We used robust regression. The difference was not statistically significant.” Both terms carry scientific meaning.
+- Preserve binding: “Material A lost 8% of its mass. Material B was stable at 400 K.” Keep separate subjects; never imply that A's measurement occurred at B's temperature.
+- Preserve a real contrast: “The signal reflects adsorption, not absorption.” Do not remove the exclusion as a rhetorical pattern.
+- Flag substance: “This groundbreaking method proves causality.” Replacing “proves” with “suggests” or deleting the claim is not cosmetic. Leave the substantive wording and flag the concern.
+- Preserve voice: “Honestly, that was a mess. I'm still annoyed.” Do not automatically delete the adverb or smooth away the frustration.
 
-Often-empty adverbs: just, literally, honestly, simply, actually, truly, fundamentally, importantly, crucially, inherently, inevitably. Cut them when they add nothing. Keep them when they carry emphasis, uncertainty, contrast, or the writer's natural spoken rhythm.
+## Workflow and output
 
-Often-empty phrases: it's worth noting, it's important to note, at the end of the day, when it comes to, at its core, in today's world, in the age of, in the world of, the reality is, the truth is, in terms of, with regard to, in order to, going forward, in this article, let's dive in. Cut them when they delay the point. Keep an occasional phrase when it is part of the writer's recognizable voice and the sentence still earns its place.
+1. Read the full supplied passage before editing. Identify its purpose, voice, genre, and protected content. If only an excerpt is available, preserve unresolved references and limit verification to that excerpt.
+2. In detect mode, report findings and stop. Otherwise make local edits under the preservation rules.
+3. Compare the result directly with the original, not from memory. Use [eval.md](eval.md). Check both unchanged protected strings and the relationships around them. Revert any edit whose equivalence is uncertain; flag it instead of repeatedly rewriting.
+4. Return the complete edited passage in its original format, or the edited file and comparison when working on a document. Separate editorial notes from the draft.
+5. In **What changed**, briefly summarize cosmetic edits. For manuscripts, include a before → after record for **every changed sentence**, including deletions and splits, with section/paragraph location when available. A complete tracked diff can serve as this record. For other technical drafts, record each changed sentence containing a factual claim, protected content, or attribution. Include any unresolved substantive concerns under a short separate note. Do not claim unchanged sentences are scientifically verified.
+6. Honor an explicit request for revised text only or another review format. Keep the preservation checks internal even when the change log is omitted. If no edit is warranted, say so briefly rather than manufacturing changes.
 
-## Patterns to cut
+## Reference and limits
 
-**Binary contrasts.** "This is not X. It's Y." / "The question isn't X, it's Y." / "It's not just X but Y." State Y directly. "The question isn't the model. It's the eval." becomes "The eval matters more than the model."
-
-**Throat-clearing openers.** "Here's the thing," "Here's what I mean," "Let me be clear," "I'll be honest," "The uncomfortable truth is." Cut them and state the point.
-
-**Faux-insight setups.** "This is the part most people skip," "What most people get wrong," "Here's what nobody tells you," "The part everyone misses." These flatter the writer as the lone expert. Cut the setup and make the claim stand on its own. "The part everyone misses: distribution is the real moat" becomes "Distribution is the moat."
-
-**Colon reveals.** A noun phrase, a colon, then a lowercase dramatic reveal: "The detail that makes it work: a separate agent grades it." "The best part: it learns." Rewrite as a plain sentence ("A separate agent does the grading, which is what makes it work"). Use colons for lists, labels, and quotes, not fake drama. Prefer sentence case after a colon unless grammar, a proper noun, a title, or code requires otherwise.
-
-**Superficial analysis.** Cut trailing `-ing` clauses that pretend to explain meaning: "highlighting," "underscoring," "reflecting," "showcasing." "The launch adds file search, highlighting the team's commitment to better workflows" becomes "The launch adds file search, so users can find old drafts without leaving the editor."
-
-**Importance puffery.** "Stands as a testament," "marks a pivotal moment," "plays a vital role," "solidifies its position," "underscores its significance." State the fact and let the reader judge whether it matters. "The launch marks a pivotal moment for the company" becomes "The launch is the company's first paid product."
-
-**Weasel attribution.** "Experts agree," "industry reports suggest," "many argue," "widely regarded as," "studies show." Name the source or cut the claim. If the user has no source, ask instead of inventing one.
-
-**Fake-strong verbs.** Prefer "is" and "has" when they are clearer. "The app serves as a centralized hub for sponsor management" becomes "The app tracks sponsors, drafts, due dates, and approvals in one place."
-
-**Synonym cycling.** If the clear word is right, repeat it. Don't rotate terms for style. "The agent reviews the draft. The assistant scores the piece. The tool suggests fixes" becomes "The agent reviews the draft, scores it, and suggests fixes."
-
-**Negative listing.** "Not a X. Not a Y. A Z." Just say Z.
-
-**Dramatic fragmentation.** "X. And Y. And Z." or "That's it. That's the whole thing." Use complete sentences.
-
-**Robotic rhythm.** Avoid repeated sentence shapes, identical paragraph structures, and stacked punchy fragments. Vary the shape only when it helps the point.
-
-**Rhetorical setups.** "What if I told you...", "Think about it:", "Plot twist:", and self-answered "Question? Answer." pairs. Drop them and make the point.
-
-**Fake-profound kickers.** Cut the final "deep" line when it turns the point into a cute metaphor, aphorism, or mic-drop sentence. Do not rewrite it into a better metaphor. Do not preserve the rhythm. Delete it, then end on the clearest concrete sentence already in the draft. If the ending needs more closure, add a plain takeaway or next action.
-
-**Summary-recap endings.** "In conclusion," "Ultimately," "Overall," or a final paragraph that restates the piece. The reader was just there. End on the last concrete point, takeaway, or next action instead.
-
-**Formatting slop.** Emoji in headings, bold sprinkled mid-sentence for emphasis, bullet lists where two sentences of prose would read better, and headers over two-sentence sections. Format should follow the content, not decorate it.
-
-**Em dashes.** Do not use them as a default rhythm crutch. In short copy, use none. In longer drafts, 1-2 are fine if they clearly beat commas, periods, or parentheses. Remove clusters and decorative dashes.
-
-## Workflow
-
-1. Read the full draft before editing.
-2. Identify the core point and 3-5 voice signals to preserve, such as vocabulary, cadence, bluntness, humor, uncertainty, or digressions. Keep this note internal. If you cannot identify the core point, ask the user.
-3. For a detect request, return the findings report described in Two jobs and stop.
-4. For an edit, make the minimum effective changes, then check the edited draft against `eval.md` yourself.
-5. If any check fails, fix the draft and run the checks again.
-6. Output the full edited draft and a short **What changed** section.
+Informed by [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), consulted 2026-10-04. Its observations are context-dependent editing prompts, not authorship tests or a universal style guide. Apply the relevant patterns without importing Wikipedia-specific formatting rules into research or casual writing. No need to browse the page for every edit. The preservation rules above govern this skill; no prompt can guarantee perfect semantic preservation or make a manuscript publication-ready without author review.

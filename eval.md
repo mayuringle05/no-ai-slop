@@ -1,53 +1,53 @@
-# No AI slop eval
+# No AI slop evaluation
 
-Use this after the rewrite. Answer each check with pass or fail. If any check fails, fix the draft before returning it.
+Use after editing, comparing directly with the original. Preservation failures outrank style improvements: revert an uncertain edit, flag the passage, and continue elsewhere. Do not force changes to satisfy a pattern checklist.
 
-For detect requests, make sure the response names each pattern found with a quoted line and a short fix, without rewriting the draft.
+## Preservation checks
 
-## Editing principles
+- No claim, fact, example, source, mechanism, opinion, or takeaway was invented, removed, weakened, or strengthened.
+- Numbers, units, precision, notation, names, quotations, citations, references, code, identifiers, and markup remain identical unless their change was explicitly requested.
+- Facts still refer to the same subjects, methods, populations, conditions, and comparators. Citation scope and pronoun antecedents remain clear and unchanged in meaning.
+- Negation, quantifiers, exceptions, uncertainty, causal force, and distinctions between measurement and interpretation remain intact.
+- Technical terms retain their meanings. Distinct quantities remain distinct; repetition was not “fixed” with misleading synonyms.
+- Manuscript sections, paragraph order, factual table/figure content, and required conclusions remain intact. No editorial note entered the manuscript itself.
 
-1. Does the edit preserve the user's point without adding claims, examples, stats, quotes, or opinions?
-2. Does it preserve the writer's distinctive vocabulary, cadence, bluntness, humor, uncertainty, digressions, and level of polish?
-3. Does it leave strong human sentences alone instead of rewriting them for consistency or making every paragraph equally tidy?
-4. Is the amount of cutting proportional to the actual slop, with no aggressive compression that strips out character?
-5. Does the draft lead with what the reader needs while keeping personal setup that adds context, tension, or character?
-6. Are points front-loaded where that improves clarity without forcing every unit into the same structure?
-7. Do sentences earn their place, with concrete facts, protected details, and direct verbs where the draft supports them?
-8. Does the draft use active voice with human subjects where possible?
-9. Does the edit keep useful edge and preserve structure unless the structure was hurting the piece?
-10. Are genuinely tangled sentences fixed while clear spoken cadence, fragments, and changes in pace remain intact?
+## Style checks
 
-## Words to cut
+- Each edit addresses an actual local problem; clear or distinctive sentences can remain unchanged.
+- Voice, language, dialect, register, humor, and meaningful uncertainty are preserved.
+- Watch words were evaluated in context. No blind word bans, forced active voice, punctuation quotas, invented details, or artificial “human” mistakes were used.
+- Empty framing was reduced without suppressing meaningful contrasts, real lists, useful summaries, necessary limitations, or the author's claims.
 
-1. Are banned words, filler phrases, often-empty adverbs, and inflated claims removed unless quoted as examples?
+## Output checks
 
-## Patterns to cut
+- The full edited passage or requested file is supplied, with a concise change note unless the user requested otherwise.
+- Every changed manuscript sentence is reviewable as before/after text or in a complete diff, including deleted and split sentences. Other technical edits expose each changed factual sentence.
+- Ambiguous or substantive issues are separately flagged without speculative fixes. Preserving the original is acceptable.
+- Any verification statement describes only checks actually performed; it does not promise scientific correctness or detector evasion.
+- Detect-only output quotes patterns with a brief explanation, without rewriting or assigning authorship probabilities.
 
-1. Are binary contrasts, negative listings, rhetorical setups, and throat-clearing openers removed?
-2. Are faux-insight setups, colon reveals, superficial analysis, fake-strong verbs, synonym cycling, dramatic fragments, and robotic rhythm fixed?
-3. Are importance puffery and weasel attribution replaced with plain facts and named sources, or flagged for the user when no source exists?
-4. Are fake-profound kicker lines deleted instead of rewritten into better metaphors?
-5. Are summary-recap endings cut so the piece ends on a concrete point, takeaway, or next action?
-6. Is formatting slop removed: Emoji headings, decorative bold, bullets that should be prose, headers over tiny sections?
-7. Are colons sentence case unless grammar, a proper noun, a title, or code requires otherwise?
-8. Are em dashes used sparingly: Usually none in short copy, and only 1-2 in longer drafts when they clearly help?
+## Behavioral regression cases
 
-## Technical content
+Use these when changing the skill. Evaluate meaning and scope, not exact stylistic wording. These examples are fixtures, not facts to add to user drafts.
 
-Answer these only if the draft contains numbers, units, named entities, attributions, or causal claims. If it does, a fail here outranks every other check on this page.
+| Input or request | Required behavior |
+| --- | --- |
+| “It is important to note that treatment may reduce risk in adults aged 40–60 years (RR 0.82; 95% CI 0.67–1.01).” | May remove the opener; retain the modal, population, and statistical expression exactly. |
+| “We used robust regression and inspected leverage values.” | Keep both technical terms; no mandatory edit. |
+| “The effect was not statistically significant; equivalence was not established.” | Preserve both propositions; never rewrite as no effect or equivalence. |
+| “A lost 8% of its mass. B was stable at 400 K.” | No fact transfer between subjects or inferred condition for A. |
+| “The signal reflects adsorption, not absorption.” | Keep the exclusion and both distinct terms. |
+| “In this simulation, X was associated with Y after adjustment for Z.” | Preserve simulation, association, and adjustment; no causal rewrite. |
+| “The intervention reduced risk by 10%.” | Do not infer percentage points, baseline risk, or a relative/absolute interpretation. |
+| “All samples except S3 were measured at 1 bar.” | Preserve the quantifier, exception, subject, and condition. |
+| “This revolutionary method proves causality.” | Do not silently remove or downgrade substantive claims; flag the concern. |
+| “Studies show X [7].” | Do not fabricate authors, remove [7], or turn an attributed assertion into an unattributed fact. |
+| `We observed $x < 0$ (Fig.~\ref{fig:a}) \citep{Lee2024}.` | Preserve math, commands, keys, reference scope, and claim. |
+| A paper with Abstract, Results, Limitations, and Conclusion repeating its principal result | Preserve required sections and meaningful repetition; no generic recap deletion. |
+| “Honestly, that was a mess. I'm still annoyed 😂” in a casual message | Preserve emotion and register; no automatic formality or emoji removal. |
+| “We measured mass, volume, and density.” | Preserve all three list items; a triplet is not itself padding. |
+| `This result is established [INSERT DOI].` | Flag the placeholder; do not invent or silently remove a reference. |
+| A quotation containing “delve,” or code using `robust` | Leave the protected text unchanged. |
+| “Audit this only: In today's fast-paced world, our tool is a game changer.” | Quote and identify style concerns; no rewritten draft or AI-authorship verdict. |
 
-1. Is every number, unit, entity name and attribution byte-identical to the original, unless the writer asked for a change?
-2. Was any content merged, split or reordered across a subject boundary, meaning a change of material, dataset, tool, version, run or person? If so, was each affected fact re-checked against the original rather than from memory?
-3. For every claim carrying a number or a name, is it still attached to the same subject it was attached to in the original?
-4. Were qualifiers that state a basis, a condition, or the limits of a method left intact, rather than cut as throat-clearing?
-5. Where the draft used two different terms for two different quantities, were both kept rather than unified?
-6. Does the **What changed** section list separately every touched sentence that contained a number, a unit, a named entity or an attribution?
-
-## Final read
-
-1. Was the edit checked directly against this file without requiring separate editor and evaluator agents?
-2. Does the draft avoid robotic symmetry, repeated sentence shapes, and stacked punchy fragments?
-3. Would the writer recognize the edited draft as their own voice?
-4. Would the edited draft sound natural if read to a sharp colleague?
-5. Does the final output include the full edited draft and a short **What changed** section?
-6. For detect requests, does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming AI authorship?
+Perform the evaluation directly; separate editor and evaluator agents are not required.
