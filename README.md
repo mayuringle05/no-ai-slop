@@ -80,6 +80,12 @@ It also checks the fundamentals: Lead with the point when that helps, use active
 
 No AI Slop is also available as a plugin in ChatGPT.
 
+## Русская версия / Russian version
+
+Русская адаптация навыка лежит в [`skills/no-ai-slop-ru/`](skills/no-ai-slop-ru/): те же правила, но с русскими примерами паттернов и русскими штампами (канцелярит, «инновационный», «уникальный», «стоит отметить», «эксперты считают» и т. п.). Устанавливается отдельно как `no-ai-slop-ru`.
+
+The Russian adaptation lives in [`skills/no-ai-slop-ru/`](skills/no-ai-slop-ru/): the same rules, but with Russian pattern examples and Russian clichés. It installs separately as `no-ai-slop-ru`.
+
 ## Want more great AI skills?
 
 Check out [Behind the Craft](https://behindthecraft.com), my personal AI system with over a dozen other quality skills and courses.
